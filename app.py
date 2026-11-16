@@ -180,24 +180,21 @@ st.markdown(
         }
         footer { visibility:hidden !important; }
         #MainMenu { visibility:hidden !important; }
+        [data-testid="stStatusWidget"] { visibility:hidden !important; }
+        .viewerBadge_container__1QSob { display:none !important; }
         [data-testid="stSidebarCollapsedControl"],
         [data-testid="collapsedControl"] {
             display:block !important;
+            visibility:visible !important;
             position:fixed !important;
             top:15px !important;
             left:15px !important;
-            z-index:9999999 !important;
-            width:48px !important;
-            height:48px !important;
-            display:flex !important;
-            align-items:center !important;
-            justify-content:center !important;
-            background-color:rgba(0,0,0,.78) !important;
-            border:1px solid rgba(255,255,255,.28) !important;
+            z-index:99999999 !important;
+            background-color:rgba(255,255,255,.15) !important;
+            border:1px solid rgba(255,255,255,.3) !important;
             border-radius:50% !important;
-            padding:8px !important;
+            padding:10px !important;
             backdrop-filter:blur(10px) !important;
-            visibility:visible !important;
             overflow:visible !important;
             pointer-events:auto !important;
             transform:none !important;
@@ -222,15 +219,15 @@ st.markdown(
             fill:white !important;
             color:white !important;
             stroke:white !important;
-            width:24px !important;
-            height:24px !important;
+            width:28px !important;
+            height:28px !important;
         }
         [data-testid="stSidebar"] {
             position:fixed !important;
             top:0 !important;
             left:0 !important;
             bottom:0 !important;
-            z-index:1000 !important;
+            z-index:9999999 !important;
             width:85vw !important;
             min-width:85vw !important;
             max-width:85vw !important;
