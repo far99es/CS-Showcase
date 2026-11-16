@@ -53,6 +53,7 @@ st.set_page_config(
     layout="wide",
     page_title="Digital Showcase | المعرض الرقمي",
     page_icon="🚀",
+    initial_sidebar_state="auto",
 )
 
 if "language" not in st.session_state:
@@ -161,7 +162,60 @@ st.markdown(
     [data-testid="stForm"] label { color:#c8d4e4 !important; }
     [data-testid="stLinkButton"] a { border-radius:11px; background:linear-gradient(110deg,#168bd4,#7866e8); border:0; color:white !important; font-family:'__FONT__',sans-serif; font-weight:700; }
     .stAlert { direction:__DIRECTION__; }
-    @media(max-width:700px) { [data-testid="stMainBlockContainer"]{padding:1rem 1rem 2.5rem}.hero{padding:2rem .2rem 1rem}.hero-copy{font-size:16px}.card-cover{height:185px}.college-logo-wrap{width:116px;height:116px;margin-bottom:18px;border-radius:21px} }
+    @media(max-width:700px) {
+        [data-testid="stHeader"] {
+            visibility:visible !important;
+            height:0 !important;
+            min-height:0 !important;
+            background:transparent !important;
+            box-shadow:none !important;
+            overflow:visible !important;
+        }
+        [data-testid="stToolbar"] {
+            visibility:visible !important;
+            height:0 !important;
+            min-height:0 !important;
+            background:transparent !important;
+            overflow:visible !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] {
+            visibility:visible !important;
+            display:block !important;
+            position:fixed !important;
+            top:8px !important;
+            left:10px !important;
+            right:auto !important;
+            z-index:1001 !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] button {
+            visibility:visible !important;
+            display:flex !important;
+            align-items:center !important;
+            justify-content:center !important;
+            color:#fff !important;
+            background:rgba(11,15,25,.82) !important;
+            border:1px solid rgba(255,255,255,.22) !important;
+            border-radius:12px !important;
+            box-shadow:0 4px 18px rgba(0,0,0,.25) !important;
+        }
+        [data-testid="stSidebarCollapsedControl"] svg { color:#fff !important; fill:#fff !important; }
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] label,
+        [data-testid="stSidebar"] span,
+        [data-testid="stSidebar"] button,
+        [data-testid="stSidebar"] input,
+        [data-testid="stSidebar"] [data-testid="stWidgetLabel"] {
+            white-space:nowrap !important;
+            word-break:keep-all !important;
+            overflow-wrap:normal !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stWidgetLabel"] p { white-space:nowrap !important; }
+        [data-testid="stMainBlockContainer"]{padding:1rem 1rem 2.5rem}
+        .hero{padding:2rem .2rem 1rem}
+        .hero-copy{font-size:16px}
+        .card-cover{height:185px}
+        .college-logo-wrap{width:116px;height:116px;margin-bottom:18px;border-radius:21px}
+    }
     </style>
     """.replace("__DIRECTION__", "rtl" if RTL else "ltr")
        .replace("__TEXT_ALIGN__", "right" if RTL else "left")
