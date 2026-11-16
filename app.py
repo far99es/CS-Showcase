@@ -172,43 +172,53 @@ st.markdown(
             overflow:visible !important;
         }
         [data-testid="stToolbar"] {
-            visibility:visible !important;
+            visibility:hidden !important;
             height:0 !important;
             min-height:0 !important;
             background:transparent !important;
             overflow:visible !important;
         }
+        footer { visibility:hidden !important; }
+        #MainMenu { visibility:hidden !important; }
         [data-testid="stSidebarCollapsedControl"] {
-            visibility:visible !important;
             display:block !important;
             position:fixed !important;
-            top:10px !important;
-            left:10px !important;
-            right:auto !important;
-            bottom:auto !important;
-            width:auto !important;
-            height:auto !important;
+            top:15px !important;
+            left:15px !important;
+            z-index:9999999 !important;
+            background-color:rgba(255,255,255,0.1) !important;
+            border:1px solid rgba(255,255,255,0.2) !important;
+            border-radius:8px !important;
+            padding:5px 10px !important;
+            backdrop-filter:blur(10px) !important;
+            visibility:visible !important;
+            width:max-content !important;
+            height:max-content !important;
             overflow:visible !important;
+            pointer-events:auto !important;
             transform:none !important;
-            z-index:999999 !important;
         }
         [data-testid="stSidebarCollapsedControl"] button {
-            visibility:visible !important;
             display:flex !important;
             align-items:center !important;
             justify-content:center !important;
-            width:46px !important;
-            min-width:46px !important;
-            height:46px !important;
-            min-height:46px !important;
-            padding:10px !important;
             color:white !important;
-            background-color:rgba(0,0,0,.5) !important;
-            border:1px solid rgba(255,255,255,.28) !important;
-            border-radius:50% !important;
-            box-shadow:0 4px 18px rgba(0,0,0,.25) !important;
+            background:transparent !important;
+            border:0 !important;
+            border-radius:0 !important;
+            padding:0 !important;
+            min-width:24px !important;
+            min-height:24px !important;
+            box-shadow:none !important;
+            pointer-events:auto !important;
         }
-        [data-testid="stSidebarCollapsedControl"] button svg { color:white !important; fill:white !important; stroke:white !important; }
+        [data-testid="stSidebarCollapsedControl"] svg {
+            fill:white !important;
+            color:white !important;
+            stroke:white !important;
+            width:24px !important;
+            height:24px !important;
+        }
         [data-testid="stSidebar"] {
             position:fixed !important;
             top:0 !important;
