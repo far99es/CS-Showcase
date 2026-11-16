@@ -199,17 +199,49 @@ st.markdown(
             box-shadow:0 4px 18px rgba(0,0,0,.25) !important;
         }
         [data-testid="stSidebarCollapsedControl"] svg { color:#fff !important; fill:#fff !important; }
-        [data-testid="stSidebar"] p,
-        [data-testid="stSidebar"] label,
-        [data-testid="stSidebar"] span,
-        [data-testid="stSidebar"] button,
-        [data-testid="stSidebar"] input,
-        [data-testid="stSidebar"] [data-testid="stWidgetLabel"] {
+        [data-testid="stSidebar"] {
+            position:fixed !important;
+            top:0 !important;
+            left:0 !important;
+            bottom:0 !important;
+            z-index:1000 !important;
+            width:80vw !important;
+            min-width:80vw !important;
+            max-width:80vw !important;
+            height:100dvh !important;
+            box-sizing:border-box !important;
+            background:#0B0F19 !important;
+            border-right:1px solid rgba(255,255,255,.12) !important;
+            box-shadow:14px 0 42px rgba(0,0,0,.45) !important;
+            overflow-y:auto !important;
+            transform:translateX(-105%);
+            visibility:hidden !important;
+            pointer-events:none !important;
+            transition:transform .24s ease,visibility .24s ease !important;
+        }
+        [data-testid="stSidebar"][aria-expanded="true"] {
+            transform:translateX(0) !important;
+            visibility:visible !important;
+            pointer-events:auto !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stSidebarContent"],
+        [data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+            width:100% !important;
+            min-width:0 !important;
+            background:#0B0F19 !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stSelectbox"] [data-testid="stWidgetLabel"],
+        [data-testid="stSidebar"] [data-testid="stSelectbox"] [data-testid="stWidgetLabel"] p {
             white-space:nowrap !important;
+            word-break:keep-all !important;
+        }
+        [data-testid="stSidebar"] label,
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] span {
             word-break:keep-all !important;
             overflow-wrap:normal !important;
         }
-        [data-testid="stSidebar"] [data-testid="stWidgetLabel"] p { white-space:nowrap !important; }
+        [data-testid="stSidebar"] [data-testid="stRadio"] label { white-space:normal !important; }
         [data-testid="stMainBlockContainer"]{padding:1rem 1rem 2.5rem}
         .hero{padding:2rem .2rem 1rem}
         .hero-copy{font-size:16px}
