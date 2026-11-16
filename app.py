@@ -181,45 +181,7 @@ st.markdown(
             background:transparent !important;
         }
         .viewerBadge_container__1QSob { display:none !important; }
-        [data-testid="stSidebar"] {
-            position:fixed !important;
-            top:0 !important;
-            bottom:0 !important;
-            left:0 !important;
-            z-index:999999 !important;
-            width:80vw !important;
-            min-width:80vw !important;
-            max-width:80vw !important;
-            height:100vh !important;
-            height:100dvh !important;
-            box-sizing:border-box !important;
-            background:#0B0F19 !important;
-            box-shadow:14px 0 42px rgba(0,0,0,.45) !important;
-            overflow-y:auto !important;
-            transform:translateX(-100%) !important;
-            visibility:hidden !important;
-            pointer-events:none !important;
-            transition:transform .25s ease,visibility .25s ease !important;
-        }
-        [data-testid="stSidebar"][aria-expanded="true"] {
-            transform:translateX(0) !important;
-            visibility:visible !important;
-            pointer-events:auto !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stSidebarContent"],
-        [data-testid="stSidebar"] [data-testid="stSidebarUserContent"],
-        [data-testid="stSidebar"] [data-testid="stSidebarHeader"] {
-            background:#0B0F19 !important;
-        }
-        [data-testid="stMain"] {
-            width:100% !important;
-            max-width:100% !important;
-            margin-left:0 !important;
-            margin-right:0 !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stSelectbox"] [data-testid="stWidgetLabel"] p {
-            white-space:nowrap !important;
-        }
+        [data-testid="stSidebar"] { background-color:#0B0F19 !important; }
         [data-testid="stMainBlockContainer"]{padding:1rem 1rem 2.5rem}
         .hero{padding:2rem .2rem 1rem}
         .hero-copy{font-size:16px}
