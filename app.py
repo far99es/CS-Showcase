@@ -181,7 +181,19 @@ st.markdown(
             background:transparent !important;
         }
         .viewerBadge_container__1QSob { display:none !important; }
-        [data-testid="stSidebar"] { background-color:#0B0F19 !important; }
+        [data-testid="stSidebar"] {
+            min-width:250px !important;
+            background-color:#0B0F19 !important;
+            transform:translateX(-100%) !important;
+            transition:transform .3s ease-in-out !important;
+        }
+        [data-testid="stSidebar"][aria-expanded="true"] {
+            transform:translateX(0) !important;
+        }
+        [data-testid="collapsedControl"] {
+            left:10px !important;
+            top:10px !important;
+        }
         [data-testid="stMainBlockContainer"]{padding:1rem 1rem 2.5rem}
         .hero{padding:2rem .2rem 1rem}
         .hero-copy{font-size:16px}
