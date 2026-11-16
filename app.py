@@ -162,7 +162,7 @@ st.markdown(
     [data-testid="stForm"] label { color:#c8d4e4 !important; }
     [data-testid="stLinkButton"] a { border-radius:11px; background:linear-gradient(110deg,#168bd4,#7866e8); border:0; color:white !important; font-family:'__FONT__',sans-serif; font-weight:700; }
     .stAlert { direction:__DIRECTION__; }
-    @media(max-width:700px) {
+    @media(max-width:768px) {
         [data-testid="stHeader"] {
             visibility:visible !important;
             height:0 !important;
@@ -182,23 +182,33 @@ st.markdown(
             visibility:visible !important;
             display:block !important;
             position:fixed !important;
-            top:8px !important;
+            top:10px !important;
             left:10px !important;
             right:auto !important;
-            z-index:1001 !important;
+            bottom:auto !important;
+            width:auto !important;
+            height:auto !important;
+            overflow:visible !important;
+            transform:none !important;
+            z-index:999999 !important;
         }
         [data-testid="stSidebarCollapsedControl"] button {
             visibility:visible !important;
             display:flex !important;
             align-items:center !important;
             justify-content:center !important;
-            color:#fff !important;
-            background:rgba(11,15,25,.82) !important;
-            border:1px solid rgba(255,255,255,.22) !important;
-            border-radius:12px !important;
+            width:46px !important;
+            min-width:46px !important;
+            height:46px !important;
+            min-height:46px !important;
+            padding:10px !important;
+            color:white !important;
+            background-color:rgba(0,0,0,.5) !important;
+            border:1px solid rgba(255,255,255,.28) !important;
+            border-radius:50% !important;
             box-shadow:0 4px 18px rgba(0,0,0,.25) !important;
         }
-        [data-testid="stSidebarCollapsedControl"] svg { color:#fff !important; fill:#fff !important; }
+        [data-testid="stSidebarCollapsedControl"] button svg { color:white !important; fill:white !important; stroke:white !important; }
         [data-testid="stSidebar"] {
             position:fixed !important;
             top:0 !important;
