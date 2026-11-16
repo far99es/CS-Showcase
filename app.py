@@ -180,39 +180,45 @@ st.markdown(
         }
         footer { visibility:hidden !important; }
         #MainMenu { visibility:hidden !important; }
-        [data-testid="stSidebarCollapsedControl"] {
+        [data-testid="stSidebarCollapsedControl"],
+        [data-testid="collapsedControl"] {
             display:block !important;
             position:fixed !important;
             top:15px !important;
             left:15px !important;
             z-index:9999999 !important;
-            background-color:rgba(255,255,255,0.1) !important;
-            border:1px solid rgba(255,255,255,0.2) !important;
-            border-radius:8px !important;
-            padding:5px 10px !important;
+            width:48px !important;
+            height:48px !important;
+            display:flex !important;
+            align-items:center !important;
+            justify-content:center !important;
+            background-color:rgba(0,0,0,.78) !important;
+            border:1px solid rgba(255,255,255,.28) !important;
+            border-radius:50% !important;
+            padding:8px !important;
             backdrop-filter:blur(10px) !important;
             visibility:visible !important;
-            width:max-content !important;
-            height:max-content !important;
             overflow:visible !important;
             pointer-events:auto !important;
             transform:none !important;
         }
-        [data-testid="stSidebarCollapsedControl"] button {
+        [data-testid="stSidebarCollapsedControl"] button,
+        [data-testid="collapsedControl"] button {
             display:flex !important;
             align-items:center !important;
             justify-content:center !important;
             color:white !important;
             background:transparent !important;
             border:0 !important;
-            border-radius:0 !important;
+            border-radius:50% !important;
             padding:0 !important;
             min-width:24px !important;
             min-height:24px !important;
             box-shadow:none !important;
             pointer-events:auto !important;
         }
-        [data-testid="stSidebarCollapsedControl"] svg {
+        [data-testid="stSidebarCollapsedControl"] svg,
+        [data-testid="collapsedControl"] svg {
             fill:white !important;
             color:white !important;
             stroke:white !important;
@@ -225,12 +231,14 @@ st.markdown(
             left:0 !important;
             bottom:0 !important;
             z-index:1000 !important;
-            width:80vw !important;
-            min-width:80vw !important;
-            max-width:80vw !important;
+            width:85vw !important;
+            min-width:85vw !important;
+            max-width:85vw !important;
             height:100dvh !important;
             box-sizing:border-box !important;
-            background:#0B0F19 !important;
+            background-color:#0B0F19 !important;
+            opacity:1 !important;
+            backdrop-filter:none !important;
             border-right:1px solid rgba(255,255,255,.12) !important;
             box-shadow:14px 0 42px rgba(0,0,0,.45) !important;
             overflow-y:auto !important;
@@ -245,10 +253,32 @@ st.markdown(
             pointer-events:auto !important;
         }
         [data-testid="stSidebar"] [data-testid="stSidebarContent"],
-        [data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+        [data-testid="stSidebar"] [data-testid="stSidebarUserContent"],
+        [data-testid="stSidebar"] [data-testid="stSidebarHeader"] {
             width:100% !important;
             min-width:0 !important;
-            background:#0B0F19 !important;
+            background-color:#0B0F19 !important;
+            opacity:1 !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stSidebarHeader"] button,
+        [data-testid="stSidebar"] button[aria-label="Close sidebar"] {
+            display:flex !important;
+            visibility:visible !important;
+            align-items:center !important;
+            justify-content:center !important;
+            width:42px !important;
+            height:42px !important;
+            color:white !important;
+            background:rgba(255,255,255,.10) !important;
+            border:1px solid rgba(255,255,255,.24) !important;
+            border-radius:50% !important;
+            z-index:10000000 !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stSidebarHeader"] button svg,
+        [data-testid="stSidebar"] button[aria-label="Close sidebar"] svg {
+            color:white !important;
+            fill:white !important;
+            stroke:white !important;
         }
         [data-testid="stSidebar"] [data-testid="stSelectbox"] [data-testid="stWidgetLabel"],
         [data-testid="stSidebar"] [data-testid="stSelectbox"] [data-testid="stWidgetLabel"] p {
@@ -257,11 +287,13 @@ st.markdown(
         }
         [data-testid="stSidebar"] label,
         [data-testid="stSidebar"] p,
-        [data-testid="stSidebar"] span {
+        [data-testid="stSidebar"] span,
+        [data-testid="stSidebar"] button {
+            white-space:nowrap !important;
             word-break:keep-all !important;
             overflow-wrap:normal !important;
         }
-        [data-testid="stSidebar"] [data-testid="stRadio"] label { white-space:normal !important; }
+        [data-testid="stSidebar"] .brand-sub { max-width:100%; overflow:hidden; text-overflow:ellipsis; }
         [data-testid="stMainBlockContainer"]{padding:1rem 1rem 2.5rem}
         .hero{padding:2rem .2rem 1rem}
         .hero-copy{font-size:16px}
