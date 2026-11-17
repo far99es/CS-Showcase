@@ -409,7 +409,8 @@ if "liked_project_ids" not in st.session_state:
     st.session_state.liked_project_ids = set()
 
 with st.sidebar:
-    st.markdown(f"## 🚀 {t('brand')}")
+    st.markdown(f"### 🚀 {t('brand')}")
+    st.markdown("<style>[data-testid='stSidebar'] h3 { font-size: 1.15rem !important; line-height: 1.4 !important; }</style>", unsafe_allow_html=True)
     page = st.radio(t("nav"), ["gallery", "admin"], format_func=lambda value: t(value), label_visibility="collapsed")
     st.markdown("---")
     st.caption(t("sidebar_note"))
