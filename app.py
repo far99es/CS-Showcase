@@ -494,16 +494,7 @@ if page == "admin":
 st.markdown('<div class="topline"></div>', unsafe_allow_html=True)
 header_left, header_right = st.columns([7, 2])
 with header_left:
-    logo_col, brand_text_col = st.columns([1, 8])
-    with logo_col:
-        techno_logo_path = Path(__file__).with_name("techno_logo.png")
-        if techno_logo_path.is_file():
-            try:
-                st.image(str(techno_logo_path), width=80)
-            except Exception:
-                pass
-    with brand_text_col:
-        st.markdown(f'<div>{t("brand")}<div class="brand-sub">{t("brand_sub")}</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="brand-row"><span class="brand-mark">✨</span><div>{t("brand")}<div class="brand-sub">{t("brand_sub")}</div></div></div>', unsafe_allow_html=True)
 with header_right:
     if st.button(t("add_project"), use_container_width=True, key="toggle_add"):
         st.session_state.show_add_form = not st.session_state.get("show_add_form", False)
