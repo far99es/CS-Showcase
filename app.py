@@ -11,7 +11,7 @@ import streamlit as st
 TRANSLATIONS = {
     "العربية": {
         "page_title": "معرض الحاسب للإبداع التقني", "brand": "معرض الحاسب للإبداع التقني", "brand_sub": "قسم الحاسب الآلي · مساحة للإبداع والابتكار",
-        "language": "اللغة / Language", "arabic": "العربية", "english": "English", "nav": "التنقل", "gallery": "المعرض", "admin": "لوحة تحكم الإدارة",
+        "language": "اللغة / Language", "dark_mode": "الوضع الداكن (Dark Mode)", "arabic": "العربية", "english": "English", "nav": "التنقل", "gallery": "المعرض", "admin": "لوحة تحكم الإدارة",
         "sidebar_note": "قسم الحاسب الآلي · 2026", "admin_eyebrow": "مساحة الإدارة", "admin_copy": "نظرة عامة على مشاريع المعرض وتفاعل المجتمع",
         "password": "كلمة مرور الإدارة", "login": "دخول لوحة الإدارة", "bad_password": "كلمة المرور غير صحيحة.",
         "total_projects": "إجمالي المشاريع", "total_likes": "إجمالي الإعجابات", "category_chart": "توزيع المشاريع حسب المسار", "category": "المسار", "project_count": "عدد المشاريع", "logout": "تسجيل الخروج من لوحة الإدارة",
@@ -30,7 +30,7 @@ TRANSLATIONS = {
     },
     "English": {
         "page_title": "Computer Tech Innovation Showcase", "brand": "Computer Tech Innovation Showcase", "brand_sub": "Computer Science Department · A space for creativity and innovation",
-        "language": "Language / اللغة", "arabic": "العربية", "english": "English", "nav": "Navigation", "gallery": "Gallery", "admin": "Admin Dashboard",
+        "language": "Language / اللغة", "dark_mode": "Dark Mode", "arabic": "العربية", "english": "English", "nav": "Navigation", "gallery": "Gallery", "admin": "Admin Dashboard",
         "sidebar_note": "Computer Science Department · 2026", "admin_eyebrow": "ADMIN SPACE", "admin_copy": "An overview of showcase projects and community engagement",
         "password": "Admin password", "login": "Open admin dashboard", "bad_password": "Incorrect password.",
         "total_projects": "Total projects", "total_likes": "Total likes", "category_chart": "Projects by category", "category": "Category", "project_count": "Project count", "logout": "Log out of admin dashboard",
@@ -67,8 +67,17 @@ def t(key):
 
 with st.sidebar:
     st.selectbox(t("language"), ["العربية", "English"], key="language", format_func=lambda value: "🌍  " + value)
+    if "dark_mode" not in st.session_state:
+        st.session_state.dark_mode = True
+    if "last_dark_mode" not in st.session_state:
+        st.session_state.last_dark_mode = st.session_state.dark_mode
+    st.toggle(t("dark_mode"), key="dark_mode")
+if st.session_state.dark_mode != st.session_state.last_dark_mode:
+    st.session_state.last_dark_mode = st.session_state.dark_mode
+    st.rerun()
 LANG = st.session_state.language
 RTL = LANG == "العربية"
+DARK_MODE = st.session_state.dark_mode
 
 st.markdown(
     """
@@ -90,7 +99,7 @@ st.markdown(
         font-family: '__FONT__', sans-serif !important;
         direction: __DIRECTION__;
     }
-    html, body { color-scheme:dark !important; }
+    html, body { color-scheme:__COLOR_SCHEME__ !important; }
     [data-testid="stAppViewContainer"] {
         color: var(--text);
         background:
@@ -164,7 +173,7 @@ st.markdown(
         background-color:#111927 !important; color:#F3F7FF !important;
         -webkit-text-fill-color:#F3F7FF !important;
         border:1px solid rgba(255,255,255,.15) !important; border-radius:10px;
-        color-scheme:dark;
+        color-scheme:__COLOR_SCHEME__;
     }
     [data-testid="stTextInput"] input::placeholder,
     [data-testid="stTextArea"] textarea::placeholder { color:#9AA8BF !important; opacity:1 !important; }
@@ -214,7 +223,45 @@ st.markdown(
     </style>
     """.replace("__DIRECTION__", "rtl" if RTL else "ltr")
        .replace("__TEXT_ALIGN__", "right" if RTL else "left")
-       .replace("__FONT__", "Tajawal" if RTL else "Inter"),
+       .replace("__FONT__", "Tajawal" if RTL else "Inter")
+       .replace("__COLOR_SCHEME__", "dark" if DARK_MODE else "light"),
+    unsafe_allow_html=True,
+)
+
+theme_values = {
+    "bg": "#0B0F19" if DARK_MODE else "#F3F4F6",
+    "text": "#F3F7FF" if DARK_MODE else "#151821",
+    "muted": "#9AA8BF" if DARK_MODE else "#596273",
+    "surface": "rgba(255,255,255,.055)" if DARK_MODE else "#FFFFFF",
+    "surface_solid": "#111927" if DARK_MODE else "#FFFFFF",
+    "border": "rgba(255,255,255,.12)" if DARK_MODE else "#D7DCE5",
+}
+st.markdown(
+    f"""
+    <style>
+    :root {{
+        --bg-color:{theme_values['bg']}; --text-color:{theme_values['text']};
+        --muted-color:{theme_values['muted']}; --surface-color:{theme_values['surface']};
+        --surface-solid:{theme_values['surface_solid']}; --border-color:{theme_values['border']};
+        color-scheme:{'dark' if DARK_MODE else 'light'};
+    }}
+    html, body, [data-testid="stAppViewContainer"] {{ background:var(--bg-color) !important; color:var(--text-color) !important; color-scheme:{'dark' if DARK_MODE else 'light'} !important; }}
+    [data-testid="stMain"], [data-testid="stSidebar"], [data-testid="stSidebarContent"], [data-testid="stSidebarUserContent"] {{ background:var(--bg-color) !important; color:var(--text-color) !important; }}
+    [data-testid="stMainBlockContainer"] {{ color:var(--text-color) !important; }}
+    .project-card {{ background:var(--surface-color) !important; border-color:var(--border-color) !important; }}
+    .card-title, .section-heading, .brand-row, .site-footer strong {{ color:var(--text-color) !important; }}
+    .card-desc, .card-foot, .section-caption, .hero-copy, .site-footer, .brand-sub {{ color:var(--muted-color) !important; }}
+    .meta-chip {{ background:var(--surface-color) !important; border-color:var(--border-color) !important; color:var(--text-color) !important; }}
+    [data-testid="stTextInput"] input, [data-testid="stTextArea"] textarea,
+    [data-testid="stSelectbox"] [data-baseweb="select"] > div {{
+        background-color:var(--surface-solid) !important; color:var(--text-color) !important;
+        -webkit-text-fill-color:var(--text-color) !important; border-color:var(--border-color) !important;
+    }}
+    [data-testid="stTextInput"] input::placeholder, [data-testid="stTextArea"] textarea::placeholder {{ color:var(--muted-color) !important; }}
+    [data-testid="stForm"] {{ background:var(--surface-color) !important; border-color:var(--border-color) !important; }}
+    [data-testid="stDialog"] > div > div {{ background:var(--bg-color) !important; color:var(--text-color) !important; border-color:var(--border-color) !important; }}
+    </style>
+    """,
     unsafe_allow_html=True,
 )
 
@@ -420,7 +467,7 @@ if page == "admin":
         projects_df = pd.DataFrame(table_records, columns=[t("project_title"), t("student"), t("category"), t("likes_column"), t("date_column"), t("status")])
         table_col, action_col = st.columns([2.3, 1], gap="large")
         with table_col:
-            st.dataframe(projects_df, use_container_width=True, hide_index=True)
+            st.dataframe(projects_df, use_container_width=True, hide_index=True, theme="dark" if DARK_MODE else "light")
         with action_col:
             if project_items:
                 selected_delete_id = st.selectbox(
@@ -490,8 +537,8 @@ if page == "admin":
         if chart_data:
             fig = px.pie(chart_data, names=t("category"), values=t("project_count"), hole=0.58,
                          color_discrete_sequence=["#48C8FF", "#9A7BFF", "#64F0C8", "#FFB86B"])
-            fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                              font={"family": "Tajawal" if RTL else "Inter", "color": "#F3F7FF"},
+            fig.update_layout(template="plotly_dark" if DARK_MODE else "plotly_white", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                              font={"family": "Tajawal" if RTL else "Inter", "color": "#F3F7FF" if DARK_MODE else "#151821"},
                               legend={"orientation": "h", "y": -0.12}, margin={"l": 15, "r": 15, "t": 35, "b": 35})
             st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
         else:
