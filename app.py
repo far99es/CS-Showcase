@@ -106,7 +106,7 @@ st.markdown(
     .topline { height: 1px; width:100%; margin: 0 auto 1.8rem; background: linear-gradient(90deg, transparent, rgba(72,200,255,.55), rgba(154,123,255,.38), transparent); }
     .brand-row { display:flex; align-items:center; gap:12px; color:#dce8f7; font-weight:700; letter-spacing:.2px; }
     .brand-mark { display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; border-radius:13px; background:linear-gradient(140deg,rgba(72,200,255,.22),rgba(154,123,255,.23)); border:1px solid rgba(117,206,255,.25); box-shadow:0 0 28px rgba(51,163,255,.13); font-size:20px; }
-    .brand-mark.logo-mark { width:60px; height:60px; overflow:hidden; padding:0; border-radius:16px; }
+    .brand-mark.logo-mark { width:70px; height:70px; overflow:hidden; padding:0 !important; border-radius:16px; background:rgba(255,255,255,.95); }
     .brand-mark.logo-mark img { display:block; width:100%; height:100%; object-fit:cover; border-radius:14px; }
     .brand-sub { color:#8392aa; font-size:13px; font-weight:400; margin-top:2px; }
     .hero { position:relative; overflow:hidden; text-align:center; padding:3.1rem 1rem 1.25rem; }
