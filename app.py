@@ -90,6 +90,7 @@ st.markdown(
         font-family: '__FONT__', sans-serif !important;
         direction: __DIRECTION__;
     }
+    html, body { color-scheme:dark !important; }
     [data-testid="stAppViewContainer"] {
         color: var(--text);
         background:
@@ -156,7 +157,17 @@ st.markdown(
     /* Streamlit controls and dialogs */
     [data-testid="stDialog"] > div > div { background:#111927; border:1px solid rgba(95,190,255,.22); border-radius:20px; }
     [data-testid="stDialog"] h2 { color:#f3f7ff; }
-    [data-testid="stTextInput"] input, [data-testid="stTextArea"] textarea, [data-testid="stSelectbox"] [data-baseweb="select"] > div { direction:__DIRECTION__; text-align:__TEXT_ALIGN__; background:rgba(255,255,255,.055); color:#edf5ff; border-color:rgba(255,255,255,.15); border-radius:10px; }
+    [data-testid="stTextInput"] input,
+    [data-testid="stTextArea"] textarea,
+    [data-testid="stSelectbox"] [data-baseweb="select"] > div {
+        direction:__DIRECTION__; text-align:__TEXT_ALIGN__;
+        background-color:#111927 !important; color:#F3F7FF !important;
+        -webkit-text-fill-color:#F3F7FF !important;
+        border:1px solid rgba(255,255,255,.15) !important; border-radius:10px;
+        color-scheme:dark;
+    }
+    [data-testid="stTextInput"] input::placeholder,
+    [data-testid="stTextArea"] textarea::placeholder { color:#9AA8BF !important; opacity:1 !important; }
     [data-testid="stForm"] { padding:15px 18px; border:1px solid rgba(255,255,255,.1); border-radius:17px; background:rgba(255,255,255,.035); }
     [data-testid="stForm"] [data-testid="stFormSubmitButton"] button[kind="secondary"] { background:rgba(255,105,120,.10); color:#ffc0c8; border:1px solid rgba(255,120,135,.28); }
     [data-testid="stForm"] [data-testid="stFormSubmitButton"] button[kind="secondary"]:hover { background:rgba(255,105,120,.20); border-color:rgba(255,120,135,.55); color:#fff; }
@@ -479,7 +490,7 @@ if page == "admin":
         if chart_data:
             fig = px.pie(chart_data, names=t("category"), values=t("project_count"), hole=0.58,
                          color_discrete_sequence=["#48C8FF", "#9A7BFF", "#64F0C8", "#FFB86B"])
-            fig.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+            fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                               font={"family": "Tajawal" if RTL else "Inter", "color": "#F3F7FF"},
                               legend={"orientation": "h", "y": -0.12}, margin={"l": 15, "r": 15, "t": 35, "b": 35})
             st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
