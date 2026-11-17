@@ -219,6 +219,14 @@ st.markdown(
         letter-spacing: -0.5px !important;
         white-space: normal !important;
     }
+    .sidebar-brand {
+        font-size: 1.15rem !important;
+        line-height: 1.4 !important;
+        letter-spacing: -0.5px !important;
+        text-wrap: balance !important;
+        word-break: keep-all !important;
+        color: #F3F7FF !important;
+    }
     @media (min-width: 769px) {
         [data-testid="stSidebarCollapseButton"],
         [data-testid="collapsedControl"],
@@ -409,8 +417,7 @@ if "liked_project_ids" not in st.session_state:
     st.session_state.liked_project_ids = set()
 
 with st.sidebar:
-    st.markdown(f"### 🚀 {t('brand')}")
-    st.markdown("<style>[data-testid='stSidebar'] h3 { font-size: 1.15rem !important; line-height: 1.4 !important; }</style>", unsafe_allow_html=True)
+    st.markdown(f"<h3 class='sidebar-brand' style='margin: 0; padding-bottom: 10px; font-weight: bold;'>🚀 {t('brand')}</h3>", unsafe_allow_html=True)
     page = st.radio(t("nav"), ["gallery", "admin"], format_func=lambda value: t(value), label_visibility="collapsed")
     st.markdown("---")
     st.caption(t("sidebar_note"))
