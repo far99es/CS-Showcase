@@ -106,7 +106,8 @@ st.markdown(
     .topline { height: 1px; width:100%; margin: 0 auto 1.8rem; background: linear-gradient(90deg, transparent, rgba(72,200,255,.55), rgba(154,123,255,.38), transparent); }
     .brand-row { display:flex; align-items:center; gap:12px; color:#dce8f7; font-weight:700; letter-spacing:.2px; }
     .brand-mark { display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; border-radius:13px; background:linear-gradient(140deg,rgba(72,200,255,.22),rgba(154,123,255,.23)); border:1px solid rgba(117,206,255,.25); box-shadow:0 0 28px rgba(51,163,255,.13); font-size:20px; }
-    .brand-logo { display:block; width:80px; height:80px; object-fit:contain; }
+    .brand-logo-shell { display:inline-flex; align-items:center; justify-content:center; padding:3px; border-radius:20px; background-color:rgba(255,255,255,.05); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.1); }
+    .brand-logo { display:block; width:80px; height:80px; object-fit:contain; border-radius:16px; }
     .brand-sub { color:#8392aa; font-size:13px; font-weight:400; margin-top:2px; }
     .hero { position:relative; overflow:hidden; text-align:center; padding:3.1rem 1rem 1.25rem; }
     .hero:before { content:""; position:absolute; width:390px; height:170px; border-radius:50%; filter:blur(80px); background:rgba(32,145,255,.12); top:4px; left:calc(50% - 195px); pointer-events:none; }
@@ -498,7 +499,7 @@ try:
     techno_logo_path = Path(__file__).with_name("techno_logo.png")
     if techno_logo_path.is_file():
         techno_logo_data = base64.b64encode(techno_logo_path.read_bytes()).decode("ascii")
-        brand_icon_html = f'<img class="brand-logo" src="data:image/png;base64,{techno_logo_data}" alt="Techno logo">'
+        brand_icon_html = f'<span class="brand-logo-shell"><img class="brand-logo" src="data:image/png;base64,{techno_logo_data}" alt="Techno logo"></span>'
     else:
         brand_icon_html = '<span class="brand-mark">✦</span>'
 except (OSError, ValueError):
