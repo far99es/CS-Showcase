@@ -211,6 +211,18 @@ st.markdown(
         .card-cover{height:185px}
         .college-logo-wrap{width:116px;height:116px;margin-bottom:18px;border-radius:21px}
     }
+    @media (min-width: 769px) {
+        [data-testid="stSidebarCollapseButton"],
+        [data-testid="collapsedControl"],
+        button[data-testid="baseButton-headerNoPadding"] {
+            display:none !important;
+        }
+        [data-testid="stSidebar"] {
+            margin-left:0 !important;
+            transform:none !important;
+            min-width:280px !important;
+        }
+    }
     </style>
     """.replace("__DIRECTION__", "rtl" if RTL else "ltr")
        .replace("__TEXT_ALIGN__", "right" if RTL else "left")
@@ -547,9 +559,19 @@ with header_right:
     if st.button(t("add_project"), use_container_width=True, key="toggle_add"):
         st.session_state.show_add_form = not st.session_state.get("show_add_form", False)
 
+try:
+    logo_path = Path(__file__).with_name("logo.png")
+    if logo_path.is_file():
+        logo_b64 = base64.b64encode(logo_path.read_bytes()).decode("ascii")
+        logo_html = f'<img class="college-logo" src="data:image/png;base64,{logo_b64}" alt="College logo">'
+    else:
+        logo_html = '<div style="font-size:40px;">🎓</div>'
+except Exception:
+    logo_html = '<div style="font-size:40px;">🎓</div>'
+
 st.markdown(
     f'<section class="hero"><div class="eyebrow"><i></i> {t("hero_eyebrow")}</div>'
-    f'<div class="college-logo-wrap"><img class="college-logo" src="data:image/png;base64,{base64.b64encode(Path(__file__).with_name("logo.png").read_bytes()).decode("ascii")}" alt="College logo"></div>'
+    f'<div class="college-logo-wrap">{logo_html}</div>'
     f'<h1 class="hero-title">{t("hero_title")}</h1>'
     f'<p class="hero-copy">{t("hero_copy")}</p>'
     f'<div class="hero-meta"><span class="meta-chip">{t("chip_ideas")}</span><span class="meta-chip">{t("chip_learning")}</span><span class="meta-chip">{t("chip_community")}</span></div></section>',
@@ -613,10 +635,12 @@ if not visible_projects:
 else:
     for row_start in range(0, len(visible_projects), 3):
         cols = st.columns(3, gap="large")
-        for col, (key, project) in zip(cols, visible_projects[row_start:row_start + 3]):
-            with col:
+        chunk = visible_projects[row_start:row_start + 3]
+        for col_idx, (key, project) in enumerate(chunk):
+            with cols[col_idx]:
+                card_number = row_start + col_idx + 1
                 st.markdown(
-                    f'''<article class="project-card"><div class="card-cover"><img src="{project['image']}" alt="{project['name']}"><span class="cover-index">PROJECT / {row_start + 1 + list(visible_projects).index((key, project)):02d}</span></div>
+                    f'''<article class="project-card"><div class="card-cover"><img src="{project['image']}" alt="{project['name']}"><span class="cover-index">PROJECT / {card_number:02d}</span></div>
                     <div class="card-body"><div class="card-top"><div class="card-title">{project['name']}</div><span class="badge">{TRANSLATIONS[LANG]['categories'].get(project['category'], project['category'])}</span></div>
                     <div class="card-desc">{project['description'][:105]}{'…' if len(project['description']) > 105 else ''}</div>
                     <div class="card-foot"><span class="student"><span class="avatar">✦</span>{project['student']}</span><span>{t('featured')}</span></div></div></article>''',
