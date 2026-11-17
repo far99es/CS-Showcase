@@ -579,4 +579,17 @@ else:
                     show_project(key)
                 st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown(f'<div class="footer-line"></div><div class="site-footer"><strong>{t("brand")} · {t("sidebar_note")}</strong><br>{t("footer")}</div>', unsafe_allow_html=True)
+try:
+    techno_footer_path = Path(__file__).with_name("techno_logo.png")
+    if techno_footer_path.is_file():
+        techno_footer_data = base64.b64encode(techno_footer_path.read_bytes()).decode("ascii")
+        techno_footer_img = f'<img src="data:image/png;base64,{techno_footer_data}" alt="تكنو إبداع" style="display:block;width:40px;height:auto;margin:0 auto 6px;object-fit:contain;">'
+    else:
+        techno_footer_img = ""
+except (OSError, ValueError):
+    techno_footer_img = ""
+
+st.markdown(
+    f'<div class="footer-line"></div><div class="site-footer"><strong>{t("brand")} · {t("sidebar_note")}</strong><br>{t("footer")}<div style="text-align:center;margin-top:16px;">{techno_footer_img}<span style="font-size:12px;color:#8290a6;">تم التطوير بواسطة فريق تكنو إبداع - قسم الحاسب الآلي 2026</span></div></div>',
+    unsafe_allow_html=True,
+)
