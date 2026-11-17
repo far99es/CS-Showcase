@@ -293,7 +293,7 @@ PROJECTS = {
     "p6": {"name": "شفرة الظلال", "name_en": "Shadow Cipher", "student": "يوسف الزهراني", "student_en": "Yousef Alzahrani", "category": "أمن سيبراني", "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop", "description": "مختبر تعليمي مصغر يقدم تحديات آمنة في أساسيات التشفير وتحليل الشيفرات. يتدرج المتعلم من مفاهيم الحماية الأولى إلى بناء عقلية تحليلية واعية بالمخاطر.", "description_en": "A compact learning lab with safe challenges in cryptography fundamentals and code analysis. Learners progress from basic security concepts to a thoughtful, risk-aware mindset.", "url": "https://github.com/", "added": "2026-06-21", "likes": 27},
 }
 
-DB_PATH = "showcase.db"
+DB_PATH = "showcase_v2.db"
 
 
 def get_connection():
