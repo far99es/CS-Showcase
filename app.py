@@ -10,14 +10,14 @@ import streamlit as st
 
 TRANSLATIONS = {
     "العربية": {
-        "page_title": "المعرض الرقمي | قسم الحاسب", "brand": "المعرض الرقمي", "brand_sub": "قسم الحاسب الآلي · مساحة للإبداع والابتكار",
+        "page_title": "معرض الحاسب للإبداع التقني", "brand": "معرض الحاسب للإبداع التقني", "brand_sub": "قسم الحاسب الآلي · مساحة للإبداع والابتكار",
         "language": "اللغة / Language", "arabic": "العربية", "english": "English", "nav": "التنقل", "gallery": "المعرض", "admin": "لوحة تحكم الإدارة",
         "sidebar_note": "قسم الحاسب الآلي · 2026", "admin_eyebrow": "مساحة الإدارة", "admin_copy": "نظرة عامة على مشاريع المعرض وتفاعل المجتمع",
         "password": "كلمة مرور الإدارة", "login": "دخول لوحة الإدارة", "bad_password": "كلمة المرور غير صحيحة.",
         "total_projects": "إجمالي المشاريع", "total_likes": "إجمالي الإعجابات", "category_chart": "توزيع المشاريع حسب المسار", "category": "المسار", "project_count": "عدد المشاريع", "logout": "تسجيل الخروج من لوحة الإدارة",
         "manage_projects": "إدارة المشاريع", "project_title": "اسم المشروع", "student": "المتدرب", "likes_column": "الإعجابات", "date_column": "التاريخ", "delete_project": "حذف المشروع 🗑️", "choose_project": "اختر مشروعاً", "confirm_delete": "هل أنت متأكد من حذف هذا المشروع؟ لا يمكن التراجع عن الحذف.", "confirm": "تأكيد الحذف", "cancel_delete": "إلغاء", "deleted": "تم حذف المشروع.", "pending_projects": "المشاريع قيد المراجعة", "approve": "موافقة ✅", "reject": "رفض ❌", "approved": "تمت الموافقة على المشروع.", "rejected": "تم رفض المشروع وحذفه.", "status": "الحالة", "status_approved": "معتمد", "status_pending": "قيد المراجعة", "success_added": "تم إرسال مشروعك بنجاح، وسيتم مراجعته من قبل إدارة القسم قريباً",
         "download_csv": "تحميل البيانات كملف CSV 📥", "csv_filename": "مشاريع_المعرض.csv",
-        "hero_eyebrow": "معرض المشاريع الطلابية · 2026", "hero_title": "معرض إبداعات قسم الحاسب", "hero_copy": "منصة رقمية دائمة لعرض إبداعات متدربينا في الذكاء الاصطناعي، الأمن السيبراني، وتطوير البرمجيات",
+        "hero_eyebrow": "معرض المشاريع الطلابية · 2026", "hero_title": "معرض الحاسب للإبداع التقني", "hero_copy": "منصة رقمية دائمة لعرض إبداعات متدربينا في الذكاء الاصطناعي، الأمن السيبراني، وتطوير البرمجيات",
         "chip_ideas": "✧ أفكار تصنع المستقبل", "chip_learning": "⌘ مشاريع من واقع التعلّم", "chip_community": "◉ مجتمع تقني ملهم",
         "add_project": "أضف مشروعك　➕", "search_label": "ابحث عن مشروع بالاسم", "search_placeholder": "اكتب اسم المشروع للبحث…",
         "add_heading": "أضف مشروعك إلى المعرض", "add_caption": "شارك فكرتك مع مجتمع قسم الحاسب", "field_title": "اسم المشروع", "field_student": "اسم المتدرب / المتدربة",
@@ -29,14 +29,14 @@ TRANSLATIONS = {
         "categories": {"ألعاب": "ألعاب", "ذكاء اصطناعي": "ذكاء اصطناعي", "أمن سيبراني": "أمن سيبراني", "تطبيقات": "تطبيقات"},
     },
     "English": {
-        "page_title": "Digital Showcase | Computer Science", "brand": "Digital Showcase", "brand_sub": "Computer Science Department · A space for creativity and innovation",
+        "page_title": "Computer Tech Innovation Showcase", "brand": "Computer Tech Innovation Showcase", "brand_sub": "Computer Science Department · A space for creativity and innovation",
         "language": "Language / اللغة", "arabic": "العربية", "english": "English", "nav": "Navigation", "gallery": "Gallery", "admin": "Admin Dashboard",
         "sidebar_note": "Computer Science Department · 2026", "admin_eyebrow": "ADMIN SPACE", "admin_copy": "An overview of showcase projects and community engagement",
         "password": "Admin password", "login": "Open admin dashboard", "bad_password": "Incorrect password.",
         "total_projects": "Total projects", "total_likes": "Total likes", "category_chart": "Projects by category", "category": "Category", "project_count": "Project count", "logout": "Log out of admin dashboard",
         "manage_projects": "Manage projects", "project_title": "Project title", "student": "Student", "likes_column": "Likes", "date_column": "Date", "delete_project": "Delete project 🗑️", "choose_project": "Select a project", "confirm_delete": "Are you sure you want to delete this project? This cannot be undone.", "confirm": "Confirm deletion", "cancel_delete": "Cancel", "deleted": "Project deleted.", "pending_projects": "Projects pending review", "approve": "Approve ✅", "reject": "Reject ❌", "approved": "Project approved.", "rejected": "Project rejected and deleted.", "status": "Status", "status_approved": "Approved", "status_pending": "Pending review", "success_added": "Your project was submitted successfully and will be reviewed by the department administration soon.",
         "download_csv": "Download data as CSV 📥", "csv_filename": "showcase_projects.csv",
-        "hero_eyebrow": "STUDENT PROJECT SHOWCASE · 2026", "hero_title": "Computer Science Creations", "hero_copy": "A lasting digital home for our trainees’ work in artificial intelligence, cybersecurity, and software development.",
+        "hero_eyebrow": "STUDENT PROJECT SHOWCASE · 2026", "hero_title": "Computer Tech Innovation Showcase", "hero_copy": "A lasting digital home for our trainees’ work in artificial intelligence, cybersecurity, and software development.",
         "chip_ideas": "✧ Ideas shaping tomorrow", "chip_learning": "⌘ Projects built through learning", "chip_community": "◉ An inspiring tech community",
         "add_project": "Add your project　➕", "search_label": "Search projects by name", "search_placeholder": "Type a project name to search…",
         "add_heading": "Add your project to the showcase", "add_caption": "Share your idea with the Computer Science community", "field_title": "Project title", "field_student": "Student name",
@@ -51,7 +51,7 @@ TRANSLATIONS = {
 
 st.set_page_config(
     layout="wide",
-    page_title="Digital Showcase | المعرض الرقمي",
+    page_title="معرض الحاسب للإبداع التقني | Computer Tech Innovation Showcase",
     page_icon="🚀",
     initial_sidebar_state="auto",
 )
@@ -106,8 +106,8 @@ st.markdown(
     .topline { height: 1px; width:100%; margin: 0 auto 1.8rem; background: linear-gradient(90deg, transparent, rgba(72,200,255,.55), rgba(154,123,255,.38), transparent); }
     .brand-row { display:flex; align-items:center; gap:12px; color:#dce8f7; font-weight:700; letter-spacing:.2px; }
     .brand-mark { display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; border-radius:13px; background:linear-gradient(140deg,rgba(72,200,255,.22),rgba(154,123,255,.23)); border:1px solid rgba(117,206,255,.25); box-shadow:0 0 28px rgba(51,163,255,.13); font-size:20px; }
-    .brand-mark.logo-mark { overflow:hidden; padding:0; }
-    .brand-mark.logo-mark img { display:block; width:100%; height:100%; object-fit:cover; border-radius:12px; }
+    .brand-mark.logo-mark { width:60px; height:60px; overflow:hidden; padding:0; border-radius:16px; }
+    .brand-mark.logo-mark img { display:block; width:100%; height:100%; object-fit:cover; border-radius:14px; }
     .brand-sub { color:#8392aa; font-size:13px; font-weight:400; margin-top:2px; }
     .hero { position:relative; overflow:hidden; text-align:center; padding:3.1rem 1rem 1.25rem; }
     .hero:before { content:""; position:absolute; width:390px; height:170px; border-radius:50%; filter:blur(80px); background:rgba(32,145,255,.12); top:4px; left:calc(50% - 195px); pointer-events:none; }
