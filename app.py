@@ -583,7 +583,7 @@ try:
     techno_footer_path = Path(__file__).with_name("techno_logo.png")
     if techno_footer_path.is_file():
         techno_footer_data = base64.b64encode(techno_footer_path.read_bytes()).decode("ascii")
-        techno_footer_img = f'<img src="data:image/png;base64,{techno_footer_data}" alt="تكنو إبداع" style="display:block;width:40px;height:auto;margin:0 auto 6px;object-fit:contain;">'
+        techno_footer_img = f'<img src="data:image/png;base64,{techno_footer_data}" alt="تكنو إبداع" style="display:block;width:40px;height:auto;margin:0 auto 6px;object-fit:contain;border-radius:12px;box-shadow:0 2px 10px rgba(72,200,255,.22);">'
     else:
         techno_footer_img = ""
 except (OSError, ValueError):
