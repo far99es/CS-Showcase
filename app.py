@@ -112,7 +112,9 @@ st.markdown(
     .hero:before { content:""; position:absolute; width:390px; height:170px; border-radius:50%; filter:blur(80px); background:rgba(32,145,255,.12); top:4px; left:calc(50% - 195px); pointer-events:none; }
     .eyebrow { display:inline-flex; gap:9px; align-items:center; border:1px solid rgba(112,193,255,.22); background:rgba(33,116,184,.1); color:#9edfff; padding:7px 14px; border-radius:99px; font-size:13px; margin-bottom:17px; }
     .eyebrow i { display:block; width:7px; height:7px; background:#55e4c4; border-radius:50%; box-shadow:0 0 12px #55e4c4; }
-    .hero-title { position:relative; margin:0 auto 12px; font-size:clamp(2.35rem,5.6vw,4.7rem); font-weight:900; line-height:1.2; letter-spacing:-1.6px; background:linear-gradient(100deg,#f8fbff 8%,#68d6ff 37%,#9c8aff 67%,#62efd1 92%); background-size:220% auto; color:transparent; -webkit-background-clip:text; background-clip:text; animation:gradientFlow 8s ease-in-out infinite; }
+    .hero-title {
+        position:relative; margin:0 auto 12px; font-size:clamp(2.35rem,5.6vw,4.7rem); font-weight:900; line-height:1.2; letter-spacing:-1.6px; background:linear-gradient(100deg,#f8fbff 8%,#68d6ff 37%,#9c8aff 67%,#62efd1 92%); background-size:220% auto; color:transparent; -webkit-background-clip:text; background-clip:text; animation:gradientFlow 8s ease-in-out infinite;
+    }
     @keyframes gradientFlow { 0%,100%{background-position:0% center} 50%{background-position:100% center} }
     .hero-copy { position:relative; color:#aab6ca; font-size:19px; line-height:1.8; max-width:760px; margin:auto; }
     .college-logo-wrap { display:flex; justify-content:center; align-items:center; width:142px; height:142px; box-sizing:border-box; margin:0 auto 20px; padding:12px; overflow:hidden; border-radius:24px; background:rgba(255,255,255,.95); border:1px solid rgba(255,255,255,.72); box-shadow:0 0 25px rgba(255,255,255,.2),0 12px 36px rgba(36,157,255,.16); }
@@ -210,6 +212,12 @@ st.markdown(
         .hero-copy{font-size:16px}
         .card-cover{height:185px}
         .college-logo-wrap{width:116px;height:116px;margin-bottom:18px;border-radius:21px}
+    }
+    [data-testid="stSidebar"] h2 {
+        font-size: 1.1rem !important;
+        line-height: 1.4 !important;
+        letter-spacing: -0.5px !important;
+        white-space: normal !important;
     }
     @media (min-width: 769px) {
         [data-testid="stSidebarCollapseButton"],
